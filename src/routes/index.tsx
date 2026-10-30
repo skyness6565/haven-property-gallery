@@ -39,6 +39,7 @@ function Index() {
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 text-ink-foreground">
           <p className="eyebrow animate-rise opacity-80">Residences · Rentals · Sales</p>
           <h1 className="animate-rise mt-5 max-w-4xl text-6xl leading-[0.95] md:text-8xl">Homes with a sense of quiet.</h1>
+          <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed opacity-80">Every residence is verified in person, priced with total honesty and offered with our full, heartfelt attention — because you deserve nothing less than the best.</p>
           <a href="#residences" className="eyebrow animate-rise mt-10 w-fit border-b border-gold pb-1 text-gold">View residences</a>
         </div>
       </section>
