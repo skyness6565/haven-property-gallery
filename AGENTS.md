@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep Smartsupp loading, visibility, and verified opening in the shared customer-support helper so all support entry points handle delayed or blocked chat consistently.
