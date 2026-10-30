@@ -1,0 +1,3 @@
+- [x] Correct chat sizing and make enquiry failures visible.
+- [ ] Test visible chat and real message sending on desktop and mobile.
+- [ ] Test delayed/blocked loading and inspect current errors.
