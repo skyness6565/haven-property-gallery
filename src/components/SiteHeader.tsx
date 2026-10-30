@@ -8,7 +8,6 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         <nav className="flex items-center gap-8 text-sm">
           <a href="/#residences" className="opacity-80 hover:opacity-100">Residences</a>
           <a href="/#about" className="opacity-80 hover:opacity-100">About</a>
-          <Link to="/admin" className="eyebrow opacity-80 hover:opacity-100">Admin</Link>
         </nav>
       </div>
     </header>
