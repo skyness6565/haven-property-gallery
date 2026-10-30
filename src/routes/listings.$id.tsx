@@ -68,7 +68,16 @@ function ListingPage() {
                   <p className="flex justify-between"><span className="flex items-center gap-2"><Bath className="h-4 w-4" />Bathrooms</span>{l.bathrooms}</p>
                   {l.area_sqm > 0 && <p className="flex justify-between"><span className="flex items-center gap-2"><Maximize className="h-4 w-4" />Area</span>{l.area_sqm} m²</p>}
                 </div>
-                <a href={`mailto:hello@maisonhaven.com?subject=Enquiry: ${encodeURIComponent(l.title)}`} className="mt-8 block bg-primary py-3 text-center text-sm text-primary-foreground hover:opacity-90">Enquire about this home</a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const w = window as unknown as { smartsupp?: (...args: unknown[]) => void };
+                    w.smartsupp?.("chat:open");
+                  }}
+                  className="mt-8 block w-full cursor-pointer bg-primary py-3 text-center text-sm text-primary-foreground hover:opacity-90"
+                >
+                  Enquire about this home
+                </button>
               </aside>
             </div>
           </>
