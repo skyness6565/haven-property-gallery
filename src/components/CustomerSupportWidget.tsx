@@ -30,13 +30,12 @@ export function CustomerSupportWidget() {
     smartsupp._ = [];
     w.smartsupp = smartsupp;
 
-    const firstScript = document.getElementsByTagName("script")[0];
     const chat = document.createElement("script");
     chat.type = "text/javascript";
     chat.charset = "utf-8";
     chat.async = true;
     chat.src = "https://www.smartsuppchat.com/loader.js?";
-    firstScript.parentNode?.insertBefore(chat, firstScript);
+    document.head.appendChild(chat);
   }, [isPrivateArea]);
 
   if (isPrivateArea) return null;
