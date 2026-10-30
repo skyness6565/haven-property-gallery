@@ -77,7 +77,7 @@ function AuthForm() {
       ? await supabase.auth.signInWithPassword({ email, password })
       : await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/admin` } });
     setBusy(false);
-    if (res.error) return toast.error(res.error.message);
+    if (res.error) { toast.error(res.error.message); return; }
     if (mode === "up" && !res.data.session) toast.success("Check your email to confirm your account.");
   }
 
@@ -161,7 +161,7 @@ function Dashboard({ email }: { email: string }) {
   async function remove(l: Listing) {
     if (!confirm(`Delete "${l.title}"?`)) return;
     const { error } = await supabase.from("listings").delete().eq("id", l.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     if (l.images.length) await supabase.storage.from(BUCKET).remove(l.images);
     toast.success("Deleted");
     qc.invalidateQueries();
