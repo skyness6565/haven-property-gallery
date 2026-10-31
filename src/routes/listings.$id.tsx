@@ -5,8 +5,7 @@ import { BedDouble, Bath, Maximize, MapPin, Check, ArrowLeft } from "lucide-reac
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
 import { listingQuery, formatPrice } from "@/lib/listings";
 import { Button } from "@/components/ui/button";
-import { openCustomerSupport } from "@/lib/customer-support";
-import { toast } from "sonner";
+import { telegramSupportUrl } from "@/lib/customer-support";
 
 export const Route = createFileRoute("/listings/$id")({
   head: () => ({
@@ -26,7 +25,6 @@ function ListingPage() {
   const { id } = Route.useParams();
   const { data: l, isLoading } = useQuery(listingQuery(id));
   const [active, setActive] = useState(0);
-  const [openingChat, setOpeningChat] = useState(false);
 
   return (
     <div>
@@ -72,18 +70,10 @@ function ListingPage() {
                   <p className="flex justify-between"><span className="flex items-center gap-2"><Bath className="h-4 w-4" />Bathrooms</span>{l.bathrooms}</p>
                   {l.area_sqm > 0 && <p className="flex justify-between"><span className="flex items-center gap-2"><Maximize className="h-4 w-4" />Area</span>{l.area_sqm} m²</p>}
                 </div>
-                <Button
-                  type="button"
-                  disabled={openingChat}
-                  onClick={async () => {
-                    setOpeningChat(true);
-                    try { await openCustomerSupport(); }
-                    catch (error) { toast.error(error instanceof Error ? error.message : "Chat could not connect. Please try again."); }
-                    finally { setOpeningChat(false); }
-                  }}
-                  className="mt-8 h-12 w-full"
-                >
-                  {openingChat ? "Connecting to support…" : "Enquire about this home"}
+                <Button asChild className="mt-8 h-12 w-full">
+                  <a href={telegramSupportUrl(`Hello, I'm interested in "${l.title}".`)} target="_blank" rel="noopener noreferrer">
+                    Enquire about this home on Telegram
+                  </a>
                 </Button>
               </aside>
             </div>
