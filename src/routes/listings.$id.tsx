@@ -6,7 +6,6 @@ import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
 import { listingQuery, formatPrice } from "@/lib/listings";
 import { Button } from "@/components/ui/button";
 import { telegramSupportUrl } from "@/lib/customer-support";
-import { toast } from "sonner";
 
 export const Route = createFileRoute("/listings/$id")({
   head: () => ({
@@ -26,7 +25,6 @@ function ListingPage() {
   const { id } = Route.useParams();
   const { data: l, isLoading } = useQuery(listingQuery(id));
   const [active, setActive] = useState(0);
-  const [openingChat, setOpeningChat] = useState(false);
 
   return (
     <div>
