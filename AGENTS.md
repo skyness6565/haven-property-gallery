@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep Smartsupp loading, visibility, and verified opening in the shared customer-support helper so all support entry points handle delayed or blocked chat consistently.
+- Keep the support contact (Telegram link) in the shared customer-support helper so every support entry point uses the same destination.
